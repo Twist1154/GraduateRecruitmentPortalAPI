@@ -1,33 +1,47 @@
 /*
-Author: Tiffany Kiwiets
+Author: Rethabile Ntsekhe
 Entity class for CV
  */
 
 package za.ac.cput.model;
 
-import com.sun.istack.NotNull;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Objects;
 
-@Getter
-@AllArgsConstructor
+/**
+ * Cv entity class
+ *
+ * Represents a CV document within the system.
+ *
+ * @Author Rethabile Ntsekhe
+ */
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@EqualsAndHashCode
 @Entity
 public class Cv implements Serializable {
+
+    private static final long serialVersionUID = 1L; // Added serialVersionUID
+
     @Id
-    @NotNull private String cvId;
-    @NotNull private String documentName;
-    @NotNull private String documentLocation;
-    @NotNull private boolean isAcknowledged;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define ID generation strategy
+    private String cvId;
+
+    @NotNull
+    private String documentName;
+
+    @NotNull
+    private String documentLocation;
+
+    @NotNull
+    private boolean isAcknowledged;
+
     private byte[] cvData;
-    @NotNull private LocalDate dateAdded;
+
+    @NotNull
+    private LocalDate dateAdded;
 }
