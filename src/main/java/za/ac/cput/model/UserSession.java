@@ -2,15 +2,19 @@ package za.ac.cput.model;
 
 import lombok.*;
 
-
 /**
- * @author Mbuso Kotobe
- * */
+ * Represents a user session.
+ *
+ * Author: Rethabile Ntsekhe
+ * Student number: 220455430
+ */
+
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class UserSession {
-    String sessionToken;
-    String userId;
+    private String sessionToken;
+    private String userId;
 }
