@@ -1,8 +1,9 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.model.EmailDetails;
 
-public interface EmailService {
+public interface EmailService extends JpaRepository<EmailService, String> {
     //This method can be used to send a simple text email to the desired recipient
     String sendSimpleMail(EmailDetails details);
 
